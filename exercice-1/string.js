@@ -32,7 +32,7 @@ function camelCase(str) {
     let temp = '';
 
     for (let i = 0; i < str.length; i++) {
-        if (!str[i - 1] || str[i - 1] === ' ') {
+        if (!str[i - 1] || str[i - 1] === ' ' || str[i - 1] === '_') {
             temp += str[i].toUpperCase();
         } else {
             temp += str[i].toLowerCase();
@@ -88,10 +88,10 @@ function verlan(str) {
     for (let i = 0; i < temp.length; i++) {
         let toBeReversed = temp[i].split('');
         let reversedArray = toBeReversed.reverse();
-        verlan += reversedArray.join('') + ' ';
+        verlan.push(reversedArray.join(''));
     }
 
-    return verlan.trim();
+    return verlan.join(' ');
 }
 
 function yoda(str) {
