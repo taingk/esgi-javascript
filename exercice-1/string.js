@@ -1,6 +1,6 @@
 function ucfirst(str) {
     if (typeof str !== 'string') {
-        return null;
+        return '';
     }
 
     return str.charAt(0).toUpperCase() + str.substring(1);
@@ -8,7 +8,7 @@ function ucfirst(str) {
 
 function capitalize(str) {
     if (typeof str !== 'string') {
-        return null;
+        return '';
     }
 
     let temp = '';
@@ -17,7 +17,7 @@ function capitalize(str) {
         if (!str[i - 1] || str[i - 1] === ' ') {
             temp += str[i].toUpperCase();
         } else {
-            temp += str[i];
+            temp += str[i].toLowerCase();
         }
     }
 
@@ -26,7 +26,7 @@ function capitalize(str) {
 
 function camelCase(str) {
     if (typeof str !== 'string') {
-        return null;
+        return '';
     }
 
     let temp = '';
@@ -35,24 +35,24 @@ function camelCase(str) {
         if (!str[i - 1] || str[i - 1] === ' ') {
             temp += str[i].toUpperCase();
         } else {
-            temp += str[i];
+            temp += str[i].toLowerCase();
         }
     }
 
-    return temp.replace(' ', '');
+    return temp.replace(/[ _]/g, '');
 }
 
 function snake_case(str) {
     if (typeof str !== 'string') {
-        return null;
+        return '';
     }
 
-    return str.replace(' ', '_').toLocaleLowerCase();
+    return str.replace(/ /g, '_').toLowerCase();
 }
 
 function leet(str) {
     if (typeof str !== 'string') {
-        return null;
+        return '';
     }
 
     const voyelles = { 'A': '4', 'E': '3', 'I': '1', 'O': '0', 'U': '(_)', 'Y': '7' };
@@ -71,7 +71,7 @@ function leet(str) {
 
 function prop_access(object, path) {
     if (typeof path !== 'string' || typeof object !== 'object') {
-        return null;
+        return '';
     }
 
     return true;
@@ -79,7 +79,7 @@ function prop_access(object, path) {
 
 function verlan(str) {
     if (typeof str !== 'string') {
-        return null;
+        return '';
     }
 
     let temp = str.split(' ');
@@ -96,7 +96,7 @@ function verlan(str) {
 
 function yoda(str) {
     if (typeof str !== 'string') {
-        return null;
+        return '';
     }
 
     return str.split(' ').reverse().join(' ');
