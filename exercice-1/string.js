@@ -95,7 +95,7 @@ function yoda(str) {
 }
 
 function prop_access(object, path) {
-    if (typeof object !== 'object' || object !== 'null') {
+    if (typeof object !== 'object' || !object) {
         return '';
     }
     if (path === null || !path) {
