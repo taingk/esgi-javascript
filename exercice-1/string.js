@@ -69,14 +69,6 @@ function leet(str) {
     return temp;
 }
 
-function prop_access(object, path) {
-    if (typeof path !== 'string' || typeof object !== 'object') {
-        return '';
-    }
-
-    return true;
-}
-
 function verlan(str) {
     if (typeof str !== 'string') {
         return '';
@@ -100,4 +92,26 @@ function yoda(str) {
     }
 
     return str.split(' ').reverse().join(' ');
+}
+
+function prop_access(object, path) {
+    if (typeof object !== 'object') {
+        return '';
+    }
+    if (path === null || !path) {
+        return object;
+    }
+
+    var aPath = path.split('.');
+
+    for (let i = 0; i < aPath.length; i++) {
+        if (object[aPath[i]] === undefined) {
+            console.log(`${aPath.slice(0, i + 1).join('.')} does not exist`);
+            return;
+        }
+        
+        object = object[aPath[i]];
+    }
+
+    return object;
 }
