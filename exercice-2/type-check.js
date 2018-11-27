@@ -15,7 +15,7 @@ const type_check_v2 = (check, type) => {
         case type.hasOwnProperty('type') && !type.hasOwnProperty('value') && !type.hasOwnProperty('enum'):
             return type_check_v1(check, type.type);
         case type.hasOwnProperty('type') && type.hasOwnProperty('value') && !type.hasOwnProperty('enum'):
-            return type_check_v1(check, type.type) && check === type.value;
+            return type_check_v1(check, type.type) && JSON.stringify(check) === JSON.stringify(type.value);
         case !type.hasOwnProperty('type') && !type.hasOwnProperty('value') && type.hasOwnProperty('enum'):
             return check === type.enum.length;
         default:
