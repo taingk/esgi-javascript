@@ -96,6 +96,7 @@ function yoda(str) {
 
 function prop_access(object, path) {
     if (typeof object !== 'object' || !object) {
+        console.log(`${path} not exist`)
         return '';
     }
     if (path === null || !path) {
