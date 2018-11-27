@@ -95,7 +95,7 @@ function yoda(str) {
 }
 
 function prop_access(object, path) {
-    if (typeof object !== 'object') {
+    if (typeof object !== 'object' || object !== 'null') {
         return '';
     }
     if (path === null || !path) {
@@ -106,7 +106,7 @@ function prop_access(object, path) {
 
     for (let i = 0; i < aPath.length; i++) {
         if (object[aPath[i]] === undefined) {
-            console.log(`${aPath.slice(0, i + 1).join('.')} does not exist`);
+            console.log(`${aPath.slice(0, i + 1).join('.')} not exist`);
             return;
         }
         
