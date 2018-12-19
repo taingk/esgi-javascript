@@ -8,18 +8,10 @@ String.prototype.yoda = yoda;
 Object.prototype.prop_access = prop_access;
 
 function ucfirst() {
-    if (typeof this.valueOf() !== 'string') {
-        return '';
-    }
-
     return this.valueOf().charAt(0).toUpperCase() + this.valueOf().substring(1);
 }
 
 function capitalize() {
-    if (typeof this.valueOf() !== 'string') {
-        return '';
-    }
-
     let temp = '';
 
     for (let i = 0; i < this.valueOf().length; i++) {
@@ -34,10 +26,6 @@ function capitalize() {
 }
 
 function camelCase() {
-    if (typeof this.valueOf() !== 'string') {
-        return '';
-    }
-
     let temp = '';
 
     for (let i = 0; i < this.valueOf().length; i++) {
@@ -52,18 +40,10 @@ function camelCase() {
 }
 
 function snake_case() {
-    if (typeof this.valueOf() !== 'string') {
-        return '';
-    }
-
     return this.valueOf().replace(/ /g, '_').toLowerCase();
 }
 
 function leet() {
-    if (typeof this.valueOf() !== 'string') {
-        return '';
-    }
-
     const voyelles = { 'A': '4', 'E': '3', 'I': '1', 'O': '0', 'U': '(_)', 'Y': '7' };
     let temp = '';
     
@@ -79,10 +59,6 @@ function leet() {
 }
 
 function verlan() {
-    if (typeof this.valueOf() !== 'string') {
-        return '';
-    }
-
     let temp = this.valueOf().split(' ');
     var verlan = [];
 
@@ -96,18 +72,10 @@ function verlan() {
 }
 
 function yoda() {
-    if (typeof this.valueOf() !== 'string') {
-        return '';
-    }
-
     return this.valueOf().split(' ').reverse().join(' ');
 }
 
 function prop_access(path) {
-    if (typeof this.valueOf() !== 'object' || !this.valueOf()) {
-        console.log(`${path} not exist`)
-        return '';
-    }
     if (path === null || !path) {
         return this.valueOf();
     }
